@@ -1,9 +1,9 @@
 require('dotenv').config()
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
-const helmet = require('helmet')
-const { NODE_ENV } = require('./config')
+import express from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
+import helmet from 'helmet'
+import { NODE_ENV } from './config'
 
 const app = express()
 
@@ -33,4 +33,4 @@ app.use(function errorHandler(error, req, res, next) {
     res.status(500).json(response)
 })
 
-module.exports = app
+export default app
