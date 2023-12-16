@@ -1,6 +1,6 @@
 import { createLogger, format, transports } from 'winston';
 import rTracer from 'cls-rtracer';
-import { NODE_ENV } from './config';
+import { NODE_ENV } from './config.js';
 
 const requestId = format(info => {
     const rId = rTracer.id();
@@ -15,7 +15,7 @@ const localDevelopment = () => {
     return format.combine(
         format.timestamp(),
         requestId(),
-        formatcolorize({
+        format.colorize({
             colors: {
                 timestamp: 'dim',
                 prefix: 'magenta',
