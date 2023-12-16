@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha --require test/setup.js",
-    "start": "node src/server",
-    "dev": "nodemon src/server",
+    "start": "node ./src/bin/www",
+    "dev": "nodemon ./src/bin/www",
     "predeploy": "npm audit",
     "deploy": "git push heroku master"
   },
