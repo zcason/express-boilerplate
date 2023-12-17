@@ -1,6 +1,6 @@
 import express from 'express';
-import { PORT, logger } from '../utils';
-import { routes } from '../routes'; 
+import { logger, PORT } from '../utils/index.js';
+import { default as rootRouter }  from '../routes/index.js'; 
 
 const app = express();
 
@@ -19,8 +19,7 @@ function initialize() {
 
     // implement route setter middleware (ex. below)
     // set routes
-    // app.use(rootRouter);
-    app.use(routes);
+    app.use('/api', rootRouter);
 
     // error handler
     // app.use(handleErrors);  
@@ -33,7 +32,7 @@ function initialize() {
     // Add some sort of graceful shutdown
     // Graceful shutdown of node process 
     // gracefulShutdown(server);
-
 };
 
 initialize();
+// .catch(error => logger.error(error));
