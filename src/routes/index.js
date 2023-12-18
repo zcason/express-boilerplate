@@ -33,3 +33,4 @@ rootRouter.use((req, res) => {
 
 
 export default rootRouter;
+export { handleErrors } from './_responseHandler/index.js';
