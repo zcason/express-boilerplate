@@ -1,12 +1,12 @@
-import express, { Router } from 'express';
-import { logger, STATUS_CODE } from '../utils/index.js';
+import { Router } from 'express';
 import { addRequestId, addResponseTime, logRequest } from './_middleware/index.js';
-// import { healthCheck, readinessCheck } from './_healthChecks/index.js';
-
-import { default as example } from './example/index.js';
+import { logger, STATUS_CODE } from '../utils/index.js';
+import { healthCheck, readinessCheck } from './_healthChecks/index.js';
 
 // Constant(s)
 const { NOT_FOUND } = STATUS_CODE;
+
+import { default as example } from './example/index.js';
 
 const Logger = logger.child({ component: 'route-request' });
 const rootRouter = Router();
@@ -17,9 +17,9 @@ rootRouter.use(addResponseTime());
 // log the request
 rootRouter.use(logRequest);
 
-// rootRouter.use('/healthz', healthCheck);
+rootRouter.use('/healthz', healthCheck);
 // check the readiness of the DB
-// rootRouter.use('/readiness', readinessCheck);
+rootRouter.use('/readiness', readinessCheck);
 
 // api
 rootRouter.use('/example', example);
