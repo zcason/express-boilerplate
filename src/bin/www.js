@@ -1,6 +1,8 @@
 import express from 'express';
+// import { migrateLatest, verifyConnection } from '@Database';
 import { logger, PORT } from '../utils/index.js';
-import { default as rootRouter }  from '../routes/index.js'; 
+import rootRouter from '../routes/index.js'; 
+import gracefulShutdown from './gracefulShutdown.js';
 
 const app = express();
 
@@ -24,14 +26,12 @@ function initialize() {
     // error handler
     // app.use(handleErrors);  
 
-    app.listen(PORT, () => {
-        // replace console log with logger
-        console.log(`Server listening at http://localhost:${PORT}`)
+    const server = app.listen(PORT, () => {
+        logger.info(`[server]: Server is running at http://localhost:${PORT}`);
     });
 
-    // Add some sort of graceful shutdown
     // Graceful shutdown of node process 
-    // gracefulShutdown(server);
+    gracefulShutdown(server);
 };
 
 initialize();
