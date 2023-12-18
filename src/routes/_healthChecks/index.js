@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { logger } from "@Utils";
-import { OK, INTERNAL_ERROR } from '@StatusCodes';
+import { logger, STATUS_CODE } from "../../utils/index.js";
 // import { VerifyConnection } from '@Database';
 
+const { OK, INTERNAL_ERROR } = STATUS_CODE;
 
 const healthCheck = Router();
 const readinessCheck = Router();
@@ -25,3 +25,8 @@ readinessCheck.get('/', async (req, res) => {
     
     return res.sendStatus(status);
 });
+
+export {
+    healthCheck,
+    readinessCheck
+};
