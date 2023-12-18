@@ -12,8 +12,8 @@ export function addResponseTime() {
             if (res.getHeader(responseTimeHeader)) return;
 
             const endAt = hrtime.bigint();
-            const repsonseTime = Number(endAt - startAt) * Math.pow(10, -6);
-            const val = `${respsonseTimeHeader.toFixed(truncateDigits)}ms`;
+            const responseTime = Number(endAt - startAt) * Math.pow(10, -6);
+            const val = `${responseTime.toFixed(truncateDigits)}ms`;
 
             res.setHeader(responseTimeHeader, val);
         });
