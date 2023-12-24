@@ -1,3 +1,3 @@
 export default function (req, res) {
-    res.send('API HIT!');
+    res.send('user registed!'); 
 };

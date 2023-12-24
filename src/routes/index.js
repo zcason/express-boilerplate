@@ -7,6 +7,7 @@ import { healthCheck, readinessCheck } from './_healthChecks/index.js';
 const { NOT_FOUND } = STATUS_CODE;
 
 import { default as example } from './example/index.js';
+import { default as auth } from './auth/index.js';
 
 const Logger = logger.child({ component: 'route-request' });
 const rootRouter = Router();
@@ -23,6 +24,7 @@ rootRouter.use('/readiness', readinessCheck);
 
 // api
 rootRouter.use('/example', example);
+rootRouter.use('/auth', auth);
 
 
 // 404
