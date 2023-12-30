@@ -1,8 +1,8 @@
-import express from 'express';
+import express, { json } from 'express';
 // import { migrateLatest, verifyConnection } from '@Database';
-import { logger, PORT } from '../utils/index.js';
-import rootRouter, { handleErrors } from '../routes/index.js'; 
-import gracefulShutdown from './gracefulShutdown.js';
+import { logger, PORT } from '../utils';
+import rootRouter, { handleErrors } from '../routes'; 
+import gracefulShutdown from './gracefulShutdown';
 
 const app = express();
 
@@ -18,6 +18,8 @@ function initialize() {
 
     // run migrations
     // await migrationLastest();
+
+    app.use(json());
 
     // implement route setter middleware (ex. below)
     // set routes

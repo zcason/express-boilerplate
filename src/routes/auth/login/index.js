@@ -1,5 +1,5 @@
 import express from 'express';
-import { default as postHandler } from './_post/index.js';
+import { default as postHandler } from './_post';
 
 
 const router = express();

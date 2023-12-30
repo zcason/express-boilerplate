@@ -1,4 +1,4 @@
-import { logger } from '../../utils/index.js';
+import { logger } from '../../utils';
 
 const Logger = logger.child({ component: 'request' });
 const ignorePaths = ['/healthz'];

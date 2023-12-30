@@ -1,5 +1,5 @@
 import express from 'express';
-import { default as getHandler } from './_get/index.js';
+import { default as getHandler } from './_get';
 
 
 const router = express();

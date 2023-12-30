@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import { addRequestId, addResponseTime, logRequest } from './_middleware/index.js';
-import { logger, STATUS_CODE } from '../utils/index.js';
-import { healthCheck, readinessCheck } from './_healthChecks/index.js';
+import { addRequestId, addResponseTime, logRequest } from './_middleware';
+import { logger, STATUS_CODE } from '../utils';
+import { healthCheck, readinessCheck } from './_healthChecks';
 
 // Constant(s)
 const { NOT_FOUND } = STATUS_CODE;
 
-import { default as example } from './example/index.js';
-import { default as auth } from './auth/index.js';
+import { default as example } from './example';
+import { default as auth } from './auth';
 
 const Logger = logger.child({ component: 'route-request' });
 const rootRouter = Router();
@@ -35,4 +35,4 @@ rootRouter.use((req, res) => {
 
 
 export default rootRouter;
-export { handleErrors } from './_responseHandler/index.js';
+export { handleErrors } from './_responseHandler';

@@ -1,6 +1,6 @@
 import express from 'express';
-import { default as loginHandler } from './login/index.js';
-import { default as registrationHandler } from './register/index.js'
+import { default as loginHandler } from './login';
+import { default as registrationHandler } from './register'
 
 
 const router = express();

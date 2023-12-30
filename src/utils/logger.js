@@ -1,6 +1,6 @@
 import { createLogger, format, transports } from 'winston';
 import rTracer from 'cls-rtracer';
-import { NODE_ENV } from './config.js';
+import { NODE_ENV } from './config';
 
 const requestId = format(info => {
     const rId = rTracer.id();

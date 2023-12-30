@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { logger, STATUS_CODE } from "../../utils/index.js";
+import { logger, STATUS_CODE } from "../../utils";
 // import { VerifyConnection } from '@Database';
 
 const { OK, INTERNAL_ERROR } = STATUS_CODE;

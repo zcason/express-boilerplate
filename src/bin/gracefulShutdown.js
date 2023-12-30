@@ -1,5 +1,5 @@
 import { hrtime } from 'node:process';
-import { logger } from '../utils/index.js';
+import { logger } from '../utils';
 
 /**
  * Graceful shutdown of the node process 

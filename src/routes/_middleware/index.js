@@ -1,6 +1,6 @@
-import { addRequestId } from './addRequestId.js';
-import { addResponseTime } from './addResponseTime.js';
-import { logRequest } from './logRequest.js';
+import { addRequestId } from './addRequestId';
+import { addResponseTime } from './addResponseTime';
+import { logRequest } from './logRequest';
 
 
 export {
