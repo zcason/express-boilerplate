@@ -1,13 +1,12 @@
 import { Router } from 'express';
 import { addRequestId, addResponseTime, logRequest } from './_middleware';
-import { logger, STATUS_CODE } from '../utils';
 import { healthCheck, readinessCheck } from './_healthChecks';
-
-// Constant(s)
-const { NOT_FOUND } = STATUS_CODE;
+import { logger } from '@Utils';
+import { NOT_FOUND } from '@StatusCodes';
 
 import { default as example } from './example';
 import { default as auth } from './auth';
+
 
 const Logger = logger.child({ component: 'route-request' });
 const rootRouter = Router();

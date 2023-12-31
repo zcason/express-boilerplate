@@ -1,7 +1,7 @@
 import express, { json } from 'express';
 // import { migrateLatest, verifyConnection } from '@Database';
-import { logger, PORT } from '../utils';
-import rootRouter, { handleErrors } from '../routes'; 
+import { logger, PORT } from '@Utils';
+import rootRouter, { handleErrors } from '@Routes'; 
 import gracefulShutdown from './gracefulShutdown';
 
 const app = express();
