@@ -36,5 +36,5 @@ function initialize() {
     gracefulShutdown(server);
 };
 
-initialize();
-// .catch(error => logger.error(error));
+initialize()
+ .catch(error => logger.error(error));
