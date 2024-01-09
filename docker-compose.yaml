@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  database:
+    container_name: tomus-demo
+    image: postgres:alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=tomus-demo-dev
+    ports:
+      - "5432:5432"
