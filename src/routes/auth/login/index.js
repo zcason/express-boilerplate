@@ -4,7 +4,7 @@ import { default as postHandler } from './_post';
 
 const router = express();
 
-router.get('/', postHandler);
+router.post('/', postHandler);
 
 
 export default router;
