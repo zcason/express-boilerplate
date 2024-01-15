@@ -15,7 +15,8 @@
           "@Database": "./src/database",
           "@Routes": "./src/routes",
           "@Utils": "./src/utils",
-          "@StatusCodes": "./src/utils/statusCodes"
+          "@StatusCodes": "./src/utils/statusCodes",
+          "@Knexfile": "./knexfile.js"
         }
       }]
     ]
