@@ -2,6 +2,7 @@ import { createLogger, format, transports } from 'winston';
 import rTracer from 'cls-rtracer';
 import { NODE_ENV } from './config';
 
+
 const requestId = format(info => {
     const rId = rTracer.id();
     if (rId) info.requestId = rId;
@@ -58,5 +59,6 @@ const logger = createLogger({
     transports: [new transports.Console()]
 })
 .child({ service: 'backstage-metrics-service' });
+
 
 export default logger;

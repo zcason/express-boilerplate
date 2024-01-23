@@ -1,12 +1,12 @@
-import express, { json } from 'express';
+import express from 'express';
 import { migrateLatest, verifyConnection } from '@Database';
 import { logger, PORT } from '@Utils';
 import rootRouter, { handleErrors } from '@Routes'; 
 import gracefulShutdown from './gracefulShutdown';
 
+
 const app = express();
 
-// add async finctionality to it 
 async function initialize() {
     logger.info('initializing service...');
 
@@ -19,9 +19,6 @@ async function initialize() {
     // run migrations
     await migrateLatest();
 
-    app.use(json());
-
-    // implement route setter middleware (ex. below)
     // set routes
     app.use('/api', rootRouter);
 
