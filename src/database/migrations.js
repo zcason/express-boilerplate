@@ -8,7 +8,7 @@ async function migrateLatest() {
     Logger.info('checking...');
 
     try {
-        await pg.migrate.latetest();
+        await pg.migrate.latest();
         Logger.info('successful');
     } catch (err) {
         Logger.error('failure', err);

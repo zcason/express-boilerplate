@@ -1,8 +1,6 @@
-import { serializeError } from 'serialize-error';
 import { randomUUID } from 'node:crypto';
 import pgPromise from 'pg-promise';
 import { logger } from '@Utils';
-import { stringify } from 'node:querystring';
 
 
 const dbLogger = logger.child({ component: 'postgres' });
@@ -40,7 +38,7 @@ const initOptions = {
 
         dbLogger.info(`disconnect: releasing the virtual connection { processId: ${processID}, dbContetxt: ${dc}, host: ${host}, post: ${port}, ${user}, database: ${database} }`);
     },
-    error(error, { ctx, params, query, cn }) {
+    error(error, { ctx, query, cn }) {
         if (cn) {
             // connection error
             // if the password is present it's maksed by #
@@ -49,7 +47,7 @@ const initOptions = {
 
         if (query) {
             delete error.result;
-            queryLogger.error(JSON,stringify(serializeError(error)));
+            queryLogger.error(JSON.stringify(error));
         }
 
         if (ctx) {
@@ -57,7 +55,7 @@ const initOptions = {
             dbLogger.error(`context: ${JSON.stringify(ctx)}`);
         }
     }
-}
+};
 
 const pgp = pgPromise(initOptions);
 const pg = pgp(dbConnection, randomUUID());

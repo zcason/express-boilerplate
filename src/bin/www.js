@@ -1,5 +1,6 @@
 import express, { json } from 'express';
-// import { migrateLatest, verifyConnection } from '@Database';
+import { migrateLatest, verifyConnection } from '@Database';
+// import { migrateLatest } from '@Database';
 import { logger, PORT } from '@Utils';
 import rootRouter, { handleErrors } from '@Routes'; 
 import gracefulShutdown from './gracefulShutdown';
@@ -7,17 +8,17 @@ import gracefulShutdown from './gracefulShutdown';
 const app = express();
 
 // add async finctionality to it 
-function initialize() {
+async function initialize() {
     logger.info('initializing service...');
 
     // hide server type from browser
     app.disable('x-powered-by');
 
     // verify connection to postgres
-    // await verifyConnection();
+    await verifyConnection();
 
     // run migrations
-    // await migrationLastest();
+    await migrateLatest();
 
     app.use(json());
 
