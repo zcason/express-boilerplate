@@ -2,7 +2,7 @@
   "name": "tomus-backend-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/bin/www.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && babel src --out-dir dist  --copy-files",
@@ -23,12 +23,13 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.1.1",
-    "knex": "^3.1.0",
     "morgan": "^1.10.0",
     "on-headers": "^1.0.2",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "pg": "^8.11.3",
+    "pg": "^8.10.0",
+    "pg-promise": "^11.5.4",
+    "serialize-error": "^11.0.3",
     "winston": "^3.11.0"
   },
   "devDependencies": {
@@ -41,6 +42,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "chai": "^4.2.0",
     "eslint": "^8.56.0",
+    "knex": "^2.4.0",
     "mocha": "^8.2.0",
     "nodemon": "^3.0.2",
     "rimraf": "^5.0.5",
