@@ -11,6 +11,7 @@ exports.up = async function(knex) {
         table.string('last_name').notNullable();
         table.timestamp('created_at').defaultTo(knex.fn.now());
         table.integer('login_id').unsigned().notNullable();
+        table.enum('status', ['active', 'banned', 'deactivated']).defaultTo('active');
         table.foreign('login_id').references('id').inTable('users');
     });
 };
