@@ -3,7 +3,7 @@ import { logger } from '@Utils';
 
 const Logger = logger.child({ component: 'route' });
 export default function (req, res) {
-    Logger.info('user loggin in');
+    Logger.info('user logging in');
     // try {
 
     // } catch (err) {
