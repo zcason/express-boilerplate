@@ -40,4 +40,4 @@ function sql(file) {
 }
 
 // example import/export
-// export const sqlFileName = sql('./sqlFileName.sql');
+export const sqlFileName = sql('./sqlFileName.sql');
